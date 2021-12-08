@@ -26,10 +26,28 @@ class _TestAppWidgetState extends State<TestAppWidget> {
       body: InkWell(
         onTap: changeColor,
         child: AnimatedContainer(
-          duration: const Duration (milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           color: _color,
-          child: const Center(
-            child: Text('Hey there'),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                      width: 10,
+                      height: 10,
+                    )),
+                Expanded(flex: 1, child: Text('Hey there')),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    margin: EdgeInsets.only(bottom: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.blueGrey,
+                        border: Border.all(color: Colors.white)),
+                    child: Text('$_color')),
+              ],
+            ),
           ),
         ),
       ),
